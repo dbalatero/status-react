@@ -79,6 +79,7 @@ Statusgo.framework
 status-dev-cli
 
 #ios
+ios/Mapbox.framework
 ios/Pods
 ios/StatusIm.xcworkspace
 .ruby-version

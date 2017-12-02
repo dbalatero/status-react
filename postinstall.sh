@@ -44,7 +44,7 @@ nodeify_list="${node_libraries[0]}$(printf ",%s" "${node_libraries[@]:1}")"
 echo
 
 # symlink for mapbox framework
-ln -s ../node_modules/react-native-mapbox-gl/ios/Mapbox.framework ios
+ln -sf ../node_modules/react-native-mapbox-gl/ios/Mapbox.framework ios
 
 # symlink for re-natal
 if ! [ -f re-natal ]; then
