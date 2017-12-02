@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# rn-nodeify
+# temporary hack due to https://github.com/facebook/react-native/issues/4968
+
 node_libraries=(
   assert
   buffer
@@ -31,14 +34,17 @@ node_libraries=(
 
 nodeify_list="${node_libraries[0]}$(printf ",%s" "${node_libraries[@]:1}")"
 
-# rn-nodeify
-# temporary hack due to https://github.com/facebook/react-native/issues/4968
 ./node_modules/.bin/rn-nodeify \
   --yarn \
   --hack \
   --install "$nodeify_list"
 
-ln -s ../node_modules/react-native-mapbox-gl/ios/Mapbox.framework ios;
+# end hack
+
+echo
+
+# symlink for mapbox framework
+ln -s ../node_modules/react-native-mapbox-gl/ios/Mapbox.framework ios
 
 # symlink for re-natal
 if ! [ -f re-natal ]; then
